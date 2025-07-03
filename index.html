@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explorador de Videojuegos RAWG</title>
+    <link rel="stylesheet" href="src/styles/style.css" />
+    <link rel="icon" href="./favicon.png" type="image/png" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="header">
+      <div class="header-content">
+        <h1>🎮 Explorador de Juegos</h1>
+        <nav class="nav">
+          <a href="#" id="homeLink" class="nav-link active">Inicio</a>
+          <a href="#" id="favoritesLink" class="nav-link">Favoritos</a>
+        </nav>
+      </div>
+
+      <div class="controls">
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Buscar juego..." />
+          <button id="searchBtn">🔍</button>
+        </div>
+
+        <div class="filters">
+          <select id="filterPlatform">
+            <option value="">Todas las plataformas</option>
+          </select>
+
+          <select id="filterGenre">
+            <option value="">Todos los géneros</option>
+          </select>
+
+          <div class="sort-buttons">
+            <button id="sortByName" class="sort-btn">A-Z</button>
+            <button id="sortByRating" class="sort-btn">Rating</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Página principal -->
+      <section id="homePage" class="page active">
+        <div id="loadingSpinner" class="loading hidden">
+          <div class="spinner"></div>
+          <p>Cargando juegos...</p>
+        </div>
+
+        <div id="errorMessage" class="error-message hidden">
+          <p>❌ Error al cargar los juegos. Intenta nuevamente.</p>
+          <button id="retryBtn">Reintentar</button>
+        </div>
+
+        <section id="gamesContainer" class="games-grid"></section>
+
+        <div class="pagination-controls hidden" id="paginationControls">
+          <button
+            class="pagination-btn"
+            id="prevPage"
+            onclick="goToPreviousPage()"
+          >
+            ← Anterior
+          </button>
+          <span class="page-info" id="pageInfo">Página 1</span>
+          <button class="pagination-btn" id="nextPage" onclick="goToNextPage()">
+            Siguiente →
+          </button>
+        </div>
+      </section>
+
+      <!-- Página de favoritos -->
+      <section id="favoritesPage" class="page">
+        <h2>❤️ Mis Juegos Favoritos</h2>
+        <div id="favoritesContainer" class="games-grid">
+          <div class="empty-favorites">
+            <p>No tienes juegos favoritos aún.</p>
+            <p>¡Explora y agrega algunos!</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <div id="modalBody" class="modal-body"></div>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+
+    <script type="module" src="src/js/main.js"></script>
+  </body>
+</html>
