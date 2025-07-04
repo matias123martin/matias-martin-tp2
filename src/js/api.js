@@ -12,8 +12,6 @@ async function apiRequest(endpoint, params = {}) {
       }
     });
 
-    console.log("API Request:", url.toString());
-
     const response = await fetch(url);
 
     if (!response.ok) {

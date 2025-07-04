@@ -38,8 +38,6 @@ const pageInfo = document.getElementById("pageInfo");
 //#region inicializar
 async function init() {
   try {
-    console.log("Inicializando aplicación...");
-
     // Cargar filtros desde la API
     await loadFilterOptions(
       filterPlatform,
@@ -53,8 +51,6 @@ async function init() {
 
     // Configurar event listeners
     setupEventListeners();
-
-    console.log("Aplicación inicializada correctamente");
   } catch (error) {
     console.error("Error al inicializar:", error);
     showError("Error al cargar la aplicación");
@@ -173,8 +169,6 @@ async function loadGames(reset = false) {
     hasMore = result.next !== null;
 
     renderGames();
-
-    console.log("Juegos cargados:", result.games.length);
   } catch (error) {
     console.error("Error al cargar juegos:", error);
     showError("Error al cargar los juegos");

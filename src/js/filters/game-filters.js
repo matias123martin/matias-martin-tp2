@@ -239,8 +239,6 @@ export async function loadFilterOptions(
       option.textContent = genre.name;
       filterGenre.appendChild(option);
     });
-
-    console.log("Filtros cargados correctamente");
   } catch (error) {
     console.error("Error al cargar filtros:", error);
   }
