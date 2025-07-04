@@ -1,6 +1,5 @@
-const API_KEY = import.meta.env.VITE_API_KEY;
-const BASE_URL = import.meta.env.VITE_BASE_URL;
-
+const BASE_URL = "https://api.rawg.io/api";
+const API_KEY = "447b65d2d3b74bb28eb11fd145ece051";
 //#region API CONFIG
 async function apiRequest(endpoint, params = {}) {
   try {
